@@ -2,317 +2,293 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>iMonkey Official</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iMonkey</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --main:#940000;
+}
 
-/* ===== الخلفية ===== */
 body{
   margin:0;
-  font-family:Arial;
+  font-family:'Tajawal',sans-serif;
+  background:#0a0a0a;
   color:white;
-  background:url("https://media.discordapp.net/attachments/1436022655789826068/1501561920753504369/rPgeQsSXGU.png?ex=69fc8603&is=69fb3483&hm=06721a876f5414e7803b54aee14bcad29e92528081953be1a23ecaa273aaab4f&=&format=webp&quality=lossless&width=1121&height=630") center/cover fixed;
 }
 
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.75);
-  z-index:-1;
-}
-
-/* ===== Loading ===== */
-#loading{
-  position:fixed;
-  inset:0;
-  background:#0a0a0f;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#loading img{
-  width:120px;
-  border-radius:50%;
-  box-shadow:0 0 25px #ff6c6c;
-  animation:float 2s infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-/* ===== الموقع ===== */
-#site{display:none;}
-
-/* ===== NAVBAR ===== */
-nav{
+/* NAV */
+.navbar{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(15,15,20,0.55);
-  backdrop-filter:blur(15px);
   display:flex;
   justify-content:center;
-  gap:12px;
-  padding:12px;
-  z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  gap:30px;
+  background:#000;
+  padding:15px;
+  border-bottom:1px solid var(--main);
+  z-index:999;
 }
 
-.nav-btn{
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.08);
-  color:white;
-  padding:10px 16px;
-  border-radius:12px;
+.navbar a{
+  color:var(--main);
+  font-weight:bold;
   cursor:pointer;
-  transition:0.3s;
+  text-decoration:none;
 }
 
-.nav-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 15px rgba(255, 108, 108, 0.4);
-  border-color:#ff6c6ccb;
+/* SECTIONS */
+.section{display:none;padding-top:80px;}
+.active{display:block;}
+
+/* HOME */
+.banner{height:260px;}
+.banner img{width:100%;height:100%;object-fit:cover;}
+
+.profile{
+  display:flex;
+  justify-content:center;
+  margin-top:-40px;
 }
 
-.nav-btn.active{
-  background:linear-gradient(135deg,#ff6c6c,#ff5c5c);
-  border:none;
-  box-shadow:0 0 20px rgba(255, 108, 108, 0.6);
+.profile img{
+  width:90px;
+  height:90px;
+  border-radius:20px;
+  border:3px solid var(--main);
 }
 
-/* ===== Tabs ===== */
-.tab{
-  display:none;
-  padding:100px 20px;
+.center-text{
   text-align:center;
+  margin:15px;
 }
 
-/* ===== Card ===== */
-.card{
-  background:rgba(20,20,25,0.6);
-  backdrop-filter:blur(12px);
-  padding:18px;
-  border-radius:15px;
-  max-width:900px;
+/* CARDS */
+.cards{
+  max-width:600px;
   margin:auto;
-  box-shadow:0 0 25px rgba(184,108,255,0.2);
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  padding:20px;
 }
 
-/* ===== صور ===== */
-.banner{
+.card{
+  height:120px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--main);
+}
+
+.card img{
   width:100%;
-  max-height:300px;
+  height:100%;
   object-fit:cover;
 }
 
-.logo{
-  width:130px;
-  border-radius:50%;
-  margin-top:-60px;
-  box-shadow:0 0 25px #b86cff;
-}
-
-/* ===== حالات ===== */
-.online{color:#00ff88;}
-.offline{color:#ff3b3b;}
-.counter{color:#b86cff;font-size:20px;}
-
-/* ===== Admin ===== */
-#admin{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-}
-
-.box{
-  background:#15151b;
+/* SOCIAL */
+.container{
+  max-width:600px;
+  margin:auto;
   padding:20px;
-  border-radius:15px;
-  width:300px;
-  text-align:center;
 }
 
-input{
-  width:90%;
-  padding:10px;
-  border-radius:8px;
-  border:none;
-}
-
-button,a{
-  cursor:pointer;
-  padding:10px 15px;
-  border-radius:10px;
-  border:none;
-  margin:5px;
+.social-card{
+  display:flex;
+  justify-content:space-between;
+  background:#1a1a1a;
+  padding:15px;
+  margin-bottom:10px;
+  border-radius:12px;
   color:white;
   text-decoration:none;
 }
 
+/* CHAT */
+.chat{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+}
+
+.msg-box{
+  height:300px;
+  overflow:auto;
+  background:#111;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+input,button{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border:none;
+  border-radius:8px;
+}
+
+button{
+  background:var(--main);
+  color:white;
+  cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
-
-<!-- LOADING -->
-<div id="loading">
-  <img src="https://media.discordapp.net/attachments/1436022655789826068/1501561787856851106/8f1f2dfb4ce18c80a2b01255ed5652ae.webp?ex=69fc85e3&is=69fb3463&hm=4f4c4a883f2017bdfbd19a5a39d7ab0582b5e28a0342b00cedacb8f5c5380d6c&=&format=webp&width=381&height=381">
-  <p>Loading iMonkey...</p>
-</div>
-
-<!-- SITE -->
-<div id="site">
-
 <!-- NAV -->
-<nav>
-  <button class="nav-btn active" onclick="setTab(this); show('home')">🏠 الرئيسية</button>
-  <button class="nav-btn" onclick="setTab(this); show('live')">🔴 البث</button>
-  <button class="nav-btn" onclick="setTab(this); show('social')">📱 التواصل</button>
-  <button class="nav-btn" onclick="openAdmin()">⚙ الأدمن</button>
-</nav>
+<div class="navbar">
+  <a onclick="show('home')">الرئيسية</a>
+  <a onclick="show('social')">حساباتي</a>
+  <a onclick="show('chat')">الشات</a>
+</div>
 
 <!-- HOME -->
-<div id="home" class="tab" style="display:block;">
+<div id="home" class="section active">
 
-  <img class="banner"
-  src="https://media.discordapp.net/attachments/1436022655789826068/1501561920753504369/rPgeQsSXGU.png">
+  <div class="banner">
+    <img src="https://media.discordapp.net/attachments/1436022655789826068/1501561920753504369/rPgeQsSXGU.png?ex=69fc8603&is=69fb3483&hm=06721a876f5414e7803b54aee14bcad29e92528081953be1a23ecaa273aaab4f&=&format=webp&quality=lossless&width=1121&height=630">
+  </div>
+  </div>
 
-  <img class="logo"
-  src="https://media.discordapp.net/attachments/1436022655789826068/1501561787856851106/8f1f2dfb4ce18c80a2b01255ed5652ae.webp">
+  <div class="profile">
+    <img src="https://media.discordapp.net/attachments/1436022655789826068/1501561787856851106/8f1f2dfb4ce18c80a2b01255ed5652ae.webp?ex=69fc85e3&is=69fb3463&hm=4f4c4a883f2017bdfbd19a5a39d7ab0582b5e28a0342b00cedacb8f5c5380d6c&=&format=webp&width=381&height=381">
+  </div>
 
-  <h1>🔥 iMonkey</h1>
-  <p>Official Creator Website</p>
+  <div class="center-text">
+ستريمر صاعد مصعب 
+  </div>
 
-</div>
-
-<!-- LIVE -->
-<div id="live" class="tab">
-
-  <div class="card">
-    <h2>🔴 حالة البث</h2>
-
-    <div id="status" class="offline">Loading...</div>
-
-    <div class="counter">
-      👀 المشاهدين: <span id="views">0</span>
-    </div>
-
-    <iframe
-      src="https://kick.com/imonkey_d"
-      width="100%"
-      height="420"
-      style="border:none;border-radius:10px;">
-    </iframe>
+  <div class="cards">
+   <div class="card"><img src="https://media.discordapp.net/attachments/1500200151128735947/1501608318332829786/IMG_7446.png?ex=69fcb139&is=69fb5fb9&hm=dcd95c0e4c3215d09a918b88c4aba7dc83a55f0d5be142d98e908355bcd410b9&=&format=webp&quality=lossless&width=1451&height=630"></div>
+    <div class="card"><img src="https://media.discordapp.net/attachments/1500200151128735947/1501608319456907284/IMG_7444.jpg?ex=69fcb139&is=69fb5fb9&hm=85704a4102e860c3c11863e1b48c2b067da4becef794db9564331ac3d09e1244&=&format=webp&width=882&height=392"></div>
+    <div class="card"><img src="https://media.discordapp.net/attachments/1500200151128735947/1501608318760779898/IMG_7445.jpg?ex=69fcb139&is=69fb5fb9&hm=089e9fa184ab4fdc9177de69faaae0dea0b033b6743c692ad7204b1e9cce5468&=&format=webp&width=882&height=486"></div>
+        <div class="card"><img src="https://media.discordapp.net/attachments/1500200151128735947/1501608323525378331/IMG_7442.jpg?ex=69fcb13a&is=69fb5fba&hm=f2c81c0079625e33875e293a36966979420c5a3f31f88f808e7525d256c7724c&=&format=webp&width=1215&height=567"></div>
 
   </div>
 
 </div>
 
 <!-- SOCIAL -->
-<div id="social" class="tab">
-  <div class="card">
-    <h2>📱 التواصل</h2>
+<div id="social" class="section">
+  <div class="container">
+    <h2>حساباتي</h2>
 
-    <a style="background:#53fc18;color:black;" href="https://kick.com/imonkey_d">Kick</a>
-    <a style="background:#000;" href="https://x.com/iimonkey_d?s=21">X</a>
-    <a style="background:#5865F2;" href="https://discord.gg/imonkey">Discord</a>
-    <a style="background:#FF0000;" href="https://youtube.com/@imonkey_d">YouTube</a>
-
+    <a class="social-card" href="https://kick.com/imonkey_d/about">Kick</a>
+    <a class="social-card" href="https://x.com/iimonkey_d?s=21">X</a>
+    <a class="social-card" href="https://discord.gg/SXpKvDJUkF">Discord</a>
+    <a class="social-card" href="https://whatsapp.com/channel/0029VaZR0WyD8SDxBZo6pC0Z">Whatsapp</a>
+    <a class="social-card" href="https://www.snapchat.com/add/imonkey_d">Snapchat</a>
+    <a class="social-card" href="https://youtube.com/@imonkey_d?si=Wf1fHOtCTL__XeNt">YouTube</a>
   </div>
 </div>
 
+<!-- CHAT -->
+<div id="chat" class="section">
+<div class="chat">
+
+  <div class="msg-box" id="box"></div>
+
+  <input id="msg" placeholder="اكتب رسالة">
+  <button onclick="send()">إرسال</button>
+  <button onclick="admin()">لوحة الإدارة</button>
+
 </div>
-
-<!-- ADMIN -->
-<div id="admin">
-  <div class="box">
-
-    <h3>Admin Panel</h3>
-
-    <input id="pass" type="password" placeholder="Password">
-
-    <br><br>
-
-    <button onclick="login()" style="background:#ff786c;">دخول</button>
-    <button onclick="closeAdmin()">إغلاق</button>
-
-  </div>
 </div>
 
 <script>
 
-/* Loading */
-setTimeout(()=>{
-  document.getElementById("loading").style.display="none";
-  document.getElementById("site").style.display="block";
-},2000);
+/* 🔒 نظام يوزر ثابت */
+let username = localStorage.getItem("username");
+let locked = localStorage.getItem("usernameLocked");
 
-/* Tabs */
+window.onload = function(){
+
+  if(!username){
+    username = prompt("اختر اسمك (مرة واحدة فقط)");
+    if(!username) username = "(username)";
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("usernameLocked", "true");
+  }
+
+  if(locked === "true"){
+    username = localStorage.getItem("username");
+  }
+};
+
+/* NAV */
 function show(id){
-  document.querySelectorAll('.tab').forEach(t=>t.style.display='none');
-  document.getElementById(id).style.display='block';
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-/* Active nav */
-function setTab(btn){
-  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
+/* كلمات محظورة */
+const badWords = ["زق","تبن","خرا","كس","زب","كلب","حيوان","حمار"];
+let banList = [];
+let timeoutList = {};
+
+/* فلترة */
+function clean(text){
+  badWords.forEach(w=>{
+    text = text.replaceAll(w,"***");
+  });
+  return text;
 }
 
-/* Admin */
-function openAdmin(){
-  document.getElementById("admin").style.display="flex";
+/* CHAT */
+function send(){
+
+  let name = username;
+  let msg = document.getElementById('msg').value;
+
+  if(banList.includes(name)) return alert("انت موقوف");
+
+  if(timeoutList[name] && timeoutList[name] > Date.now()){
+    return alert("تايم اوت");
+  }
+
+  msg = clean(msg);
+
+  let div = document.createElement('div');
+  div.innerText = name + ": " + msg;
+
+  document.getElementById('box').appendChild(div);
+
+  document.getElementById('msg').value="";
 }
 
-function closeAdmin(){
-  document.getElementById("admin").style.display="none";
-}
+/* ADMIN */
+function admin(){
 
-function login(){
-  let pass=document.getElementById("pass").value;
-  if(pass==="imonkey511"){
-    alert("✔ تم الدخول");
-  }else{
-    alert("❌ خطأ");
+  let pass = prompt("كلمة المرور");
+
+  if(pass !== "imonkey1elv") return alert("خطأ");
+
+  let type = prompt("1-ban / 2-timeout");
+  let user = prompt("اسم اللاعب");
+
+  if(type=="1"){
+    banList.push(user);
+    alert("تم البان");
+  }
+
+  if(type=="2"){
+    let min = prompt("كم دقيقة");
+    timeoutList[user] = Date.now() + min*60000;
+    alert("تم التايم اوت");
   }
 }
-
-/* Kick API */
-async function getKick(){
-  try{
-    let res = await fetch("https://kick.com/api/v1/channels/imonkey_d");
-    let data = await res.json();
-
-    if(data.livestream && data.livestream.is_live){
-      document.getElementById("status").innerHTML="🟢 LIVE الآن";
-      document.getElementById("status").className="online";
-      document.getElementById("views").innerText=data.livestream.viewer_count || 0;
-    }else{
-      document.getElementById("status").innerHTML="🔴 OFFLINE";
-      document.getElementById("status").className="offline";
-      document.getElementById("views").innerText=0;
-    }
-
-  }catch(e){
-    document.getElementById("status").innerHTML="⚠ API Error";
-  }
-}
-
-getKick();
-setInterval(getKick,10000);
 
 </script>
 
 </body>
 </html>
+<div style="text-align:center; padding:20px; color:#ffffff; font-weight:bold;">
+  Dev By Eleven @ 2026
+</div>
